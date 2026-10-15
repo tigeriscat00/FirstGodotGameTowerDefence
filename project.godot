@@ -1,0 +1,24 @@
+; Godot 4 project configuration
+config_version=5
+
+[application]
+config/name="FirstGodotGameTowerDefence"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/stretch/mode="canvas_items"
+
+[input]
+
+toggle_shop={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"physical_keycode":66)]
+}
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.06, 0.08, 0.13, 1)

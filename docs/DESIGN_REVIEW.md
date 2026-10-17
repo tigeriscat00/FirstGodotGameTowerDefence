@@ -57,5 +57,7 @@ green health colors, and add text labels so color is not the only cue.
    and the agreed tower attack boost. Prevent an early kill from skipping this.
 8. Finish the encounter; show Sphinx's closing line and a completion/retry screen.
 
-This sequence is a proposed implementation plan. Only the UI shell exists today.
-The next useful milestone is buying one tower and placing it on a wall socket.
+This sequence now has a playable implementation using adjustable prototype rules.
+See GAME_DESIGN.md for the actual values, including 250 px tower range and a
+12-second Freeze recharge. Suggestions in the table remain design alternatives,
+not owner approvals. Next, playtest the tutorial's clarity and difficulty.

@@ -117,7 +117,7 @@ The launcher supports GODOT_EXECUTABLE when moving to another machine.
 ## Git
 
 This folder has its own repository on main, independent of the parent environment
-setup repository. Author identity is local; no remote is configured or published.
+setup repository. Author identity is local. GitHub remote: https://github.com/tigeriscat00/FirstGodotGameTowerDefence
 
 ```powershell
 git status

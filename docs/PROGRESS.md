@@ -1,5 +1,13 @@
 # Progress
 
+## 2026-10-17 - GitHub check-in
+
+- Created public repository: https://github.com/tigeriscat00/FirstGodotGameTowerDefence
+- All nine headless suites passed: 662 assertions. The grid suite also reported
+  the known audio shutdown ObjectDB warning; no assertion failures occurred.
+- Engine caches, temporary captures and build outputs remain ignored.
+
+
 ## 2026-10-17 - button, zombie, combat and skill sounds
 
 - Synthesized seven original WAV effects locally: UI click, ballista, impact,

@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="Script" path="res://scripts/ui/defeat_screen.gd" id="script"]
+[ext_resource type="Theme" path="res://resources/ui_theme.tres" id="theme"]
+
+[node name="DefeatScreen" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+z_index = 30
+theme = ExtResource("theme")
+script = ExtResource("script")
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.025, 0.025, 0.06, 0.9)
+
+[node name="Effects" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Content" type="Control" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 128.0
+offset_right = 936.0
+offset_bottom = 520.0
+pivot_offset = Vector2(360, 196)
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Content"]
+offset_left = 0.0
+offset_top = 58.0
+offset_right = 720.0
+offset_bottom = 210.0
+text = "DEFEAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 112
+theme_override_colors/font_color = Color(0.91, 0.94, 1, 1)
+theme_override_colors/font_outline_color = Color(0.13, 0.2, 0.36, 1)
+theme_override_constants/outline_size = 10
+mouse_filter = 2
+
+[node name="Message" type="Label" parent="Content"]
+offset_left = 0.0
+offset_top = 214.0
+offset_right = 720.0
+offset_bottom = 248.0
+text = "THE KINGDOM HAS FALLEN"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+mouse_filter = 2
+
+[node name="Restart" type="Button" parent="Content"]
+offset_left = 124.0
+offset_top = 282.0
+offset_right = 348.0
+offset_bottom = 340.0
+text = "Try again"
+tooltip_text = "Restart this level"
+
+[node name="Menu" type="Button" parent="Content"]
+offset_left = 372.0
+offset_top = 282.0
+offset_right = 596.0
+offset_bottom = 340.0
+text = "Main menu"

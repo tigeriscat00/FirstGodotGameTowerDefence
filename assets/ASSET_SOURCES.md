@@ -1,5 +1,140 @@
 # Asset sources
 
+## Defeat lightning - 2026-11-15
+
+Lightning bolts and flashes are original Godot drawing effects in
+`scripts/ui/defeat_screen.gd`; no new external artwork or sound was used.
+
+## Stage 1 prototype visuals - 2026-10-26
+
+Boss rings and fire and brick projectiles are drawn
+with original Godot geometry; other stage characters reuse the existing assets
+listed below with color tints. These are provisional visuals, with no new
+third-party assets.
+
+## Brick Tower upgrade and minion - 2026-10-26
+
+`generated/realistic_brick_recruiter.png` and `generated/kingdom_minion.png`
+were created with the built-in image tool, with transparent backgrounds. The
+upgraded tower was edited from the existing catapult art; the guard is a newly
+generated single pose. Original images remain unchanged.
+
+Tower prompt: "Edit this existing transparent tower defense game sprite. Keep
+the same grey stone, blue banner, exact general shape, size and elevated
+three-quarter viewpoint. Upgrade it to a minion-summoning brick catapult: retain
+a clearly visible wooden catapult basket with several red bricks on the roof,
+and add a small distinctive blue-and-gold rally flag or guard pennant near it,
+plus modest reinforced timber details. Must remain a realistic medieval fantasy
+tower, not orange, no characters, no text, transparent background, isolated
+entire tower."
+
+Minion prompt: "Use case: stylized-concept. Asset: single 2D tower-defense
+defender minion sprite. One friendly human medieval castle guard facing LEFT,
+whole body in a modest walking pose holding a short sword and small round shield,
+simple steel helmet and blue tabard, realistic painted medieval fantasy
+strategy-game style matching gray castle towers. Slightly elevated three-quarter
+side view, clear readable silhouette at 45 pixels tall, restrained blue and
+weathered steel colors. Family-friendly, no gore, no text, no ground or shadows,
+no other objects or characters. Isolated on genuinely transparent background
+with padding."
+
+## Minion walk cycle - 2026-10-26
+
+`generated/kingdom_minion_walk_v2.png` is the active transparent 1774 × 887,
+4-by-2 walking sheet, generated with the built-in image tool using the existing
+`kingdom_minion.png` as reference. `kingdom_minion_walk.png` is an earlier,
+unused generated candidate retained for reference. Godot aligns the active
+frames by measured foot and center offsets; neither source PNG was edited.
+
+Final prompt: "Production game spritesheet with a transparent background. 4
+columns × 2 rows, exactly 8 equal cells. In the CENTER of each cell place a SMALL
+full-body version of the blue medieval guard in the reference, facing left,
+holding sword and shield. The guard AND his entire sword and shield must fit
+within the CENTER HALF of each cell, leaving VERY WIDE EMPTY TRANSPARENT SPACE
+on all four sides. No body part, sword, shield or shadow is allowed near a cell
+edge. Eight distinct consecutive walking poses: legs alternate stepping forward
+and back, knees bend; sword and shield arms visibly swing. Maintain same guard
+identity, realistic painted style, size and feet baseline. No text, grid, ground,
+or background."
+
+## Brick Catapult Tower - 2026-10-26
+
+`generated/realistic_brick_catapult.png` is an AI-generated edit of the existing
+standard tower using the built-in image tool. The original remains unchanged.
+The in-flight bricks are original Godot-drawn geometry. Prompt: "Edit this
+isolated 2D strategy game tower sprite: keep the same grey stone tower, blue
+banner, color, overall proportions, lighting, perspective and transparent
+background. Replace its roof crossbow with a compact medieval timber-and-iron
+CATAPULT with a clearly visible wooden throwing arm and basket loaded with
+several reddish clay bricks, aimed LEFT toward attackers. The catapult and bricks
+should read clearly when the sprite is small; believable stone, wood and metal.
+Full tower and catapult visible with padding, no fire, no characters, no text,
+no ground, no orange tint."
+
+## Fire Bow Tower - 2026-10-26
+
+`generated/realistic_tower_fire_bow.png` was created with the built-in image
+generator by editing `generated/realistic_tower_upgraded.png`, preserving the
+original tower as a separate file. It is AI-generated artwork with transparency.
+Prompt: "Edit this existing game sprite. Preserve the exact tower, silhouette,
+position, framing, size, orientation, stonework, blue banners, two crossbow
+ballistas and transparent background. Add realistic vivid orange and golden
+flame specifically attached to both loaded bolt heads and tracing around the
+front limbs and weapon rails of both ballistas. Flames should clearly originate
+from the two weapons and flow upward, with soft warm reflected light on nearby
+metal and wood; keep the tower itself intact and readable. This is a magical
+fire-bow tower, not a building on fire. No floating fireball, no extra weapons,
+no characters, no text, no ground or background. Consistent realistic painted
+medieval fantasy strategy-game asset."
+
+## Realistic toilet zombie - 2026-10-26
+
+`generated/toilet_zombie_reference.png` is the generated reference, and
+`generated/toilet_zombie_walk.png` is the active 1536 × 1024, 4-by-2 walking
+sheet. The built-in image generator created both with transparent backgrounds.
+Godot aligns the eight poses by measured centers and feet; source PNGs are
+unchanged. This is AI-generated project artwork, with no third-party assets.
+
+Final walking-sheet prompt (the reference PNG was supplied as an image):
+"Use case: stylized-concept. Create an eight-frame animated sprite sheet for the
+SAME realistic fantasy zombie shown in the reference. Crucial design: a whole
+white ceramic toilet is worn on the zombie's HEAD as a helmet, with the bowl over
+its face, tank behind, and TWO eye holes showing its green eyes. Keep this head
+toilet and the same clothing identical in every pose; do not place a toilet behind
+its body. The zombie walks slowly to the RIGHT, alternating its legs and arms in
+eight sequential shambling poses. Arrange exactly 4 columns by 2 rows of equal
+cells. Each cell contains ONE entire small full-body zombie in the center with
+plenty of transparent margin on every side; no parts cross cell boundaries.
+Consistent side three-quarter perspective, identical scale and feet baseline,
+realistic painted game art, no gore, no text, no grid, no ground, transparent
+background."
+
+## Realistic zombie dog - 2026-10-26
+
+The built-in image generator created `generated/realistic_zombie_dog.png` as a
+transparent reference and `generated/realistic_zombie_dog_run.png` as the active
+1536 × 1024, 4-by-2 running sheet. Prompt for the reference: "One full-body
+realistic undead dog facing right, running, slightly elevated three-quarter side
+view, lean anatomy, ragged dark gray fur, pale eyes, menacing but family-friendly,
+realistic painted fantasy game style, transparent background, no floor or text."
+Prompt for the sheet: "Create exactly eight separate sequential running poses of
+the same dog in a precise four-column by two-row grid, facing right, consistent
+size and camera, distinct gallop leg poses, transparent gutters, no floor or text."
+Godot aligns each pose using measured foot and center offsets; the original PNGs
+are retained unchanged. This is AI-generated project artwork, not third-party art.
+
+Final running-sheet prompt (built-in image tool; the reference PNG was supplied
+as an image): "Use case: stylized-concept. Create a production-ready 8-frame
+sprite sheet for the same realistic zombie dog in the reference. Arrange exactly
+4 columns by 2 rows, each cell equal size. ONE small whole dog in EACH cell,
+running to the right, with eight distinct sequential leg poses. Critical layout:
+each dog fits within the central 65% width and central 65% height of its cell,
+leaving wide empty transparent gutters on ALL FOUR sides of every pose. No parts
+or tail cross the cell boundaries. Same size, same camera angle, same foot
+baseline in every frame; individual limbs clearly change pose. Transparent
+background, no ground, no lettering, no grid, no shadows. Dark fantasy painted
+strategy-game style, gray fur, no gore."
+
 ## Original synthesized sound effects - 2026-10-17
 
 `assets/audio/sfx/`: ui_click.wav, ballista.wav, impact.wav, freeze.wav,
@@ -85,10 +220,19 @@ previews are code-drawn project artwork; no downloaded assets are used.
   pixel edits. Grass/grid/hover cells are drawn by Godot. Standard tower art is
   now rendered at 68 px to fit the grid; original sprite files are preserved.
 
+## Original synthesized pop-rock background music - 2026-10-27
+
+- Active file: `audio/pop_guitar_loop.wav`; eight bars at 112 BPM (17.14 s),
+  stereo PCM16, 22050 Hz. Created locally by `tools/compose_pop_music.py` using
+  synthesized guitar-like tones, bass and drums. No external music-generation
+  service, guitar recordings, samples or third-party music were used. The guitar
+  timbre is an approximation; it is not a recorded electric guitar.
+- The previous `audio/kingdom_theme.wav` and its generator are retained.
+
 ## Original synthesized background music - 2026-10-15
 
 - File: audio/kingdom_theme.wav; 20 seconds, eight bars at 96 BPM, stereo
-  16-bit PCM, 22050 Hz. Loops across menu, tutorial and restart at -12 dB.
+  16-bit PCM, 22050 Hz. Retained as the previous background loop.
 - Source: original melody and arrangement synthesized by project code in
   tools/compose_music.py using additive tones, envelopes and circular stereo echo.
 - No music-generation service, recordings, external samples, or third-party

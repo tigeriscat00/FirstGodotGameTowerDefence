@@ -1,5 +1,150 @@
 # Progress
 
+## 2026-11-15 - Stage 1 merge verification
+
+- Godot import and startup passed. All 15 headless test scripts passed,
+  including 948 assertions, the stage roster and the balance simulation.
+  One actor-art run reported resources in use on shutdown; some other runs
+  reported the previously observed ObjectDB warning. A human playtest of
+  the full stage, its difficulty and the music remains valuable.
+
+## 2026-11-15 - Lightning defeat screen
+
+- Tutorial and Level 1 now show a large DEFEAT overlay with repeating drawn
+  lightning, Try again and Main menu buttons. Gameplay input is blocked on loss.
+- Godot import, startup, 11 defeat checks, 233 Stage 1 checks and 120 tutorial
+  checks passed. Inspected the lightning screen at the game's base resolution.
+  Headless startup retains the known two-ObjectDB shutdown warning. A human
+  playtest should still check the animation and buttons at the player's window size.
+
+## 2026-10-27 - Pop-rock background loop
+
+- Added an original eight-bar, 112 BPM pop-rock loop with synthesized
+  electric-guitar-style tones, bass and drums. The previous loop is retained.
+  No recorded instruments or external music-generation service were used.
+- Godot import, startup and all 10 music checks passed, including mute, scene
+  transitions and looping; the music checks also passed with the normal audio
+  driver. WAV is stereo 22050 Hz PCM16 with a small loop-boundary sample change.
+  Headless startup retains the known two-ObjectDB shutdown warning. The track
+  still needs a human listening pass for sound, guitar realism and volume.
+
+## 2026-10-27 - Spaced, divided brick volleys
+
+- Five bricks now share the tower's 60 power (12 damage each). Launches are
+  spaced 0.08 seconds apart and spread outward, targeting up to five enemies
+  around the tower. Fewer targets share the same total volley damage.
+- Godot import/startup, 17 brick checks, 25 minion checks and 233 stage checks
+  passed. The checks include damage, spacing, directions, pauses and one-time
+  rewards. Inspected a rendered volley; animation and revised difficulty still
+  need a human playtest. Forced startup retains the known ObjectDB warning.
+
+## 2026-10-26 - Minion walk animation
+
+- Replaced the single minion pose with an AI-generated eight-pose walk sheet.
+  Distance traveled advances the arms and legs; per-frame foot and center offsets
+  keep poses aligned. Walking pauses while attacking, in settings or in the shop.
+- Godot import/startup, 25 minion checks and 233 Stage 1 checks passed. Inspected
+  the eight poses at game size. Forced startup shutdown retains the known two
+  ObjectDB warning; the temporary rendered capture also reported a resource at
+  shutdown. A human playtest is still needed to assess the animation in motion.
+
+## 2026-10-26 - Brick Tower minion upgrade
+
+- Brick Tower can be upgraded for a provisional 100 coins. It keeps its brick
+  volley and recruits one minion every 12 active seconds. Minions patrol and
+  pursue zombies, have 100 health, and deal 10 damage every second in melee.
+  They can be attacked; selling/destroying the tower stops further recruitment.
+- Godot import, startup, 21 minion checks, 14 brick checks, 233 Stage 1 checks
+  and 120 tutorial checks passed. Inspected a rendered tower, minion and panel.
+  Full human playtesting is needed for movement feel and balance. Startup has
+  the known two-ObjectDB shutdown warning. The guard uses a single moving pose.
+
+## 2026-10-26 - Brick catapult and five-brick volleys
+
+- Brick Tower now uses a generated gray-stone catapult sprite with bricks in its
+  basket. Five bricks travel and rotate toward up to five nearby targets; fewer
+  targets share the volley. Each brick applies 60 damage on impact. A volley
+  occurs every 0.5 seconds (0.25 when the nearest target is frozen).
+- Godot import/startup, 14 focused brick checks, 233 Stage 1 checks and 120
+  tutorial checks passed. Checks cover target selection, single-target volleys,
+  flight, pause, cleanup and one-time rewards. Inspected a rendered volley;
+  full human playtesting is needed for animation feel and the stronger balance.
+  The known two-ObjectDB warning persists on forced headless startup exit.
+
+## 2026-10-26 - Replay victory message
+
+- The first sack still announces the Brick Tower unlock. After it has already
+  been unlocked, replay victory instead says "THE KINGDOM IS SAFE".
+- Godot import, startup and 233 Stage 1 checks passed, including first unlock,
+  saved progress and replay. Startup retains the known ObjectDB warning.
+
+## 2026-10-26 - Fire Bow Tower artwork
+
+- Replaced the floating fire dot with an AI-generated edit of the upgraded
+  tower, with flames attached to both ballistas. The second upgrade switches
+  artwork; damage, prices and the earlier tower tiers remain unchanged.
+- Godot import and startup passed; 230 Stage 1 checks and 12 actor-art checks
+  passed. Inspected all three tiers in a rendered battlefield capture. Startup
+  retains the known two-ObjectDB shutdown warning. The fire is a still image;
+  its appearance during a full playthrough still needs human feedback.
+
+## 2026-10-26 - Realistic toilet zombie
+
+- Replaced the geometric toilet with an AI-generated realistic toilet helmet;
+  the zombie's eyes show through two holes. Eight walking poses keep the helmet
+  attached, with per-frame foot and center alignment. Existing stats are intact.
+- Clean Godot import and startup, 228 Stage 1 checks and 12 actor-art checks
+  passed. Inspected all poses in a rendered battlefield capture. Headless startup
+  retains the known two-ObjectDB shutdown warning. The moving sprite still needs
+  a human playtest for timing and readability.
+
+## 2026-10-26 - Realistic animated zombie dog
+
+- Replaced the geometric dog with a transparent, AI-generated realistic dog
+  running sheet. Eight leg poses advance with distance; per-frame offsets align
+  the feet. Freeze and attacks hold the pose; its health bar follows its height.
+- The game rules and dog speed, damage, health and reward remain unchanged.
+- Godot import, startup, 223 Stage 1 checks and 12 tutorial actor-art checks
+  passed. Inspected all eight poses in a rendered battlefield capture. Headless
+  startup retains the known two-ObjectDB shutdown warning. A full human playtest
+  of the moving dog is still needed.
+
+## 2026-10-26 - Lower Stage 1 kill rewards
+
+- Standard, dog and toilet zombies now award 10 coins; semibosses award 15
+  and the boss awards 20. Tutorial rewards are unchanged.
+- Import, startup and 218 stage checks passed, including each enemy's exact
+  reward and single-payment behavior. Startup reported the known two ObjectDB
+  instances at shutdown. A simple automated strategy won 6 of 15 lane-pair
+  simulations, down from 13 of 15 under the earlier economy; human playtesting
+  is needed to judge the difficulty.
+
+## 2026-10-26 - Stage 1 playable prototype
+
+- Added a level-one menu marker, timed preparation, five multi-enemy waves,
+  random lanes, purchases, two standard upgrades, Freeze, defeat/restart,
+  boss sack and a saved Brick Tower unlock. Wave 1 uses two marked random rows;
+  wave 5 uses a boss in place of its listed semiboss, provisionally.
+- Stage enemies and tower upgrades use simple original Godot shapes/tints on the
+  existing art. Final dog, toilet, boss and fire/brick art remains a future pass.
+- Godot import and startup passed; 155 stage integration checks and 120 tutorial
+  checks passed. A simple automated strategy won 13 of 15 row-pair simulations;
+  this does not replace a human playtest. Inspected a rendered battlefield image.
+  Forced headless shutdown reported two ObjectDB instances, as before.
+- Play via Level 1 on the main menu. Levels 2 and 3 remain unavailable. The
+  stage has not had a complete human playthrough; test pacing, clarity and
+  difficulty, including the five-click reward and replaying with Brick Tower.
+
+## 2026-10-26 - Stage 1 roster groundwork
+
+- Recorded the five proposed wave rosters, 200 starting coins and 10-second
+  preparation period in an editable StageOneWaves resource script. The wave 1
+  semiboss and wave 5 boss conflicts remain open; no finale was invented.
+- Godot import, a roster total/boundary check and a headless startup passed.
+  Headless test and startup reported two ObjectDB instances at shutdown.
+- Stage 1 is not playable yet. Next: implement multi-enemy combat and the
+  stage controller, then the level selection, enemies, upgrades and reward.
+
 ## 2026-10-17 - GitHub check-in
 
 - Created public repository: https://github.com/tigeriscat00/FirstGodotGameTowerDefence

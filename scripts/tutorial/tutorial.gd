@@ -58,6 +58,8 @@ func _ready() -> void:
     side.get_node("Dismiss").pressed.connect(_deselect_tower)
     $HUD/DialogueToggle.pressed.connect(_toggle_dialogue)
     $VictoryCelebration.quit_requested.connect(_back_to_menu)
+    $DefeatScreen.restart_requested.connect(_restart)
+    $DefeatScreen.menu_requested.connect(_back_to_menu)
     # Initial word wrapping can temporarily report a tall minimum height before
     # the container receives its width. Resize again when that minimum settles.
     $HUD/Dialogue/Text.minimum_size_changed.connect(_layout_dialogue.call_deferred)
@@ -67,7 +69,7 @@ func _ready() -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
-    if step == Step.WON:
+    if step in [Step.WON, Step.LOST]:
         return
     if not event is InputEventKey or not event.pressed or event.echo:
         return
@@ -147,6 +149,14 @@ func _set_step(value: Step) -> void:
         $HUD/Dialogue.hide()
         $HUD/DialogueToggle.hide()
         $VictoryCelebration.celebrate()
+    elif step == Step.LOST:
+        tower_popup_open = false
+        board.freeze_aiming = false
+        $HUD/Dialogue.hide()
+        $HUD/DialogueToggle.hide()
+        $TutorialCue.hide()
+        get_node("/root/Sfx").stop_combat()
+        $DefeatScreen.show_defeat()
     _layout_dialogue()
     hint.text = ""
     _refresh_stats()

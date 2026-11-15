@@ -73,6 +73,39 @@ custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 text = "Play tutorial"
 
+[node name="Levels" type="HBoxContainer" parent="Center/Menu"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="Level1" type="Button" parent="Center/Menu/Levels"]
+custom_minimum_size = Vector2(100, 44)
+layout_mode = 2
+text = "● Level 1"
+tooltip_text = "Play Stage 1, Level 1"
+
+[node name="Line1" type="Label" parent="Center/Menu/Levels"]
+layout_mode = 2
+text = "━━"
+vertical_alignment = 1
+
+[node name="Level2" type="Button" parent="Center/Menu/Levels"]
+layout_mode = 2
+text = "○ 2"
+disabled = true
+tooltip_text = "Level 2 is coming later"
+
+[node name="Line2" type="Label" parent="Center/Menu/Levels"]
+layout_mode = 2
+text = "━━"
+vertical_alignment = 1
+
+[node name="Level3" type="Button" parent="Center/Menu/Levels"]
+layout_mode = 2
+text = "○ 3"
+disabled = true
+tooltip_text = "Level 3 is coming later"
+
 [node name="Quit" type="Button" parent="Center/Menu"]
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2

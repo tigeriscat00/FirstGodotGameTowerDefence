@@ -21,7 +21,7 @@ func _run() -> void:
 	var player: AudioStreamPlayer = root.get_node("Music")
 	var stream: AudioStreamWAV = player.stream as AudioStreamWAV
 	_check(player.playing, "Music should start automatically")
-	_check(is_equal_approx(stream.get_length(), 20.0), "Theme should be a 20-second loop")
+	_check(absf(stream.get_length() - 32.0 * 60.0 / 112.0) < 0.01, "Pop theme should contain eight bars at 112 BPM")
 	_check(stream.loop_mode == AudioStreamWAV.LOOP_FORWARD and stream.loop_end > 0, "Full-track loop must be enabled")
 	change_scene_to_file("res://scenes/main.tscn")
 	await process_frame
@@ -43,7 +43,7 @@ func _run() -> void:
 	await process_frame
 	await process_frame
 	_check(root.get_node("Music") == player and not player.is_muted, "Restart should preserve playback and mute state")
-	player.seek(19.8)
+	player.seek(stream.get_length() - 0.2)
 	await create_timer(0.6).timeout
 	_check(player.playing and player.get_playback_position() < 3.0, "Track should wrap and keep playing past its end")
 	print("MUSIC CHECKS: %d checks, %d failures" % [checks, failures])

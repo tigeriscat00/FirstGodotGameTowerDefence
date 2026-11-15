@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3]
+[gd_scene load_steps=22 format=3]
 
 [ext_resource type="Script" path="res://scripts/tutorial/tutorial.gd" id="controller"]
 
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/skill_slot.tscn" id="skill_slot"]
 [ext_resource type="Script" path="res://scripts/ui/tutorial_cue.gd" id="tutorial_cue"]
 [ext_resource type="PackedScene" path="res://scenes/ui/victory_celebration.tscn" id="victory"]
+[ext_resource type="PackedScene" path="res://scenes/ui/defeat_screen.tscn" id="defeat"]
 [ext_resource type="Script" path="res://scripts/audio/sfx_button.gd" id="sfx_button"]
 
 [sub_resource type="StyleBoxFlat" id="Gold"]
@@ -533,3 +534,5 @@ z_index = 20
 script = ExtResource("tutorial_cue")
 
 [node name="VictoryCelebration" parent="." instance=ExtResource("victory")]
+
+[node name="DefeatScreen" parent="." instance=ExtResource("defeat")]

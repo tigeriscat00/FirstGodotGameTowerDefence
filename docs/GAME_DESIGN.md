@@ -62,8 +62,53 @@ disabled for F5 fullscreen; the toggle provides instructions when embedded.
 - Victory opens a centered animated crown, fireworks and confetti celebration.
   A Quit button appears underneath after the entrance and returns to the main
   screen without closing the application. The celebration covers gameplay input.
+- Losing in the tutorial or Level 1 shows a large DEFEAT screen with animated
+  lightning and buttons to try again or return to the main menu.
 - Defeating zombies earns gold. Every wave ends with a semiboss zombie, and
   Sphinx introduces it and tells the player to use Freeze to stop it.
+
+## Post-tutorial stage planning
+
+- The player receives 200 coins at the start of each level, not each wave.
+  Zombies also drop coins for further tower purchases and upgrades.
+- Playable Level 1 uses the listed 8/10/11/14/20 enemies. For now wave 1 has
+  no semiboss and wave 5 replaces its listed semiboss with the boss; these are
+  provisional resolutions of conflicting instructions, not owner decisions.
+- The first wave picks two random rows and marks them with arrows before play;
+  later waves may use any of the six build rows. Eight seconds separate waves.
+  The shop pauses combat but preparation keeps counting down; settings pause both.
+- Stage tuning: standard 80 HP / 55 damage / 45 px/s / 10 coins; dog 50 / 35 /
+  80 / 10; toilet 200 / 35 / 27 / 10; semiboss 600 / 110 / 35 / 15; boss
+  1000 / 130 / 30 / 20. Enemies attack every 2 seconds. Spawns are 4 seconds
+  apart. These are initial playtest values, not confirmed permanent balance.
+- The dog uses a realistic eight-pose running sheet. Movement distance advances
+  its poses; freezing, attacks, shop and settings hold the animation.
+- The toilet zombie wears a realistic ceramic toilet on its head, with two eye
+  holes. Its eight-pose walk advances with distance and stops during Freeze and
+  attacks. Its health, movement speed, damage and reward are unchanged.
+- Stage standard tower costs 100: 30 damage every 1 s (30 DPS); first upgrade costs
+  50 and gives 40 damage (40 DPS); second costs 100 and gives 60 damage
+  (60 DPS). Brick costs 150 and launches five bricks every 0.5 s, dividing its
+  total 60 power into 12 damage per brick. Bricks target the nearest five enemies
+  in range, including in different directions; fewer enemies share the volley.
+  This is up to 120 DPS against one surviving target, or 24 DPS per target with
+  five targets, before Freeze and flight time. Freeze halves the shot interval
+  when the nearest target is frozen. Bricks launch 0.08 seconds apart, take
+  0.65 s to reach a moving target, rotate in flight and disappear if their target
+  dies first. The boss sack takes five clicks and
+  saves the Brick Tower unlock; it is available for replay after the unlock.
+  Later victories show "THE KINGDOM IS SAFE" instead of announcing it again.
+- For an initial playtest price of 100 coins, a Brick Tower can be upgraded once
+  to recruit a minion every 12 active seconds (five per minute). Each minion has
+  100 health, moves at 90 px/s, and deals 10 damage every second within 35 px.
+  They patrol when idle, chase the nearest zombie and can be attacked. Recruitment
+  pauses with shop/settings; existing minions survive selling or losing the tower.
+- Minions use eight walking poses with moving arms and legs, timed by distance.
+  Walking pauses when the unit is stationary, attacking or the game is paused.
+- The final Fire Bow Tower artwork has flames attached to both ballistas; the
+  first upgrade retains unlit ballistas. The flames are part of the still sprite.
+- Three level markers appear on the menu; only level 1 is playable. Completion
+  lights the connection toward level 2, which is not yet implemented.
 
 ## Proposed loop and controls
 
@@ -140,7 +185,8 @@ variant. Shop/settings pause combat audio. Sound effects have their own mute
 control in settings and the main menu, independent of music. All are synthesized
 original effects; the voice-like groans are not human recordings.
 
-Owner requested background music. Prototype uses an original, gently plucked
-20-second instrumental loop. One shared AudioStreamPlayer keeps it continuous
+Owner requested pop music with electric guitar. The game uses an original
+17.14-second, 112 BPM pop-rock loop with synthesized electric-guitar-style
+tones, bass and drums. One shared AudioStreamPlayer keeps it continuous
 across menu, tutorial and restart. Music: On/Off buttons share the mute choice
 for the current game session. Gameplay pause leaves the music playing.

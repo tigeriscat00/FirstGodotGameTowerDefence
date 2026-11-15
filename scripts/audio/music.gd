@@ -4,7 +4,7 @@ extends AudioStreamPlayer
 signal mute_changed(is_muted: bool)
 
 @export_range(-40.0, 0.0) var music_volume_db: float = -12.0
-@export_file("*.wav") var music_path: String = "res://assets/audio/kingdom_theme.wav"
+@export_file("*.wav") var music_path: String = "res://assets/audio/pop_guitar_loop.wav"
 var is_muted: bool = false
 var is_closing: bool = false
 

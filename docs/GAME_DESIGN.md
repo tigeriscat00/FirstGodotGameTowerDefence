@@ -107,8 +107,41 @@ disabled for F5 fullscreen; the toggle provides instructions when embedded.
   Walking pauses when the unit is stationary, attacking or the game is paused.
 - The final Fire Bow Tower artwork has flames attached to both ballistas; the
   first upgrade retains unlit ballistas. The flames are part of the still sprite.
-- Three level markers appear on the menu; only level 1 is playable. Completion
-  lights the connection toward level 2, which is not yet implemented.
+- The menu unlocks Level 2 after the player opens the Stage 1 boss reward sack.
+
+## Stage 2
+
+- Seven waves of 20 zombies. The order and mixture of regular, dog, toilet and
+  armored zombies vary each run. Each wave includes an armored zombie, and
+  additional armored zombies become more likely as waves advance.
+- Wave 3 opens with eight dogs alternating between two marked lanes, 1.5
+  seconds apart. Wave 4 opens with two armored zombies in one marked lane,
+  two seconds apart. The lanes are picked for each run and marked during
+  preparation. The rest of each wave resumes the normal 3.5-second interval.
+- Waves 2–6 end with a Stage 1 semiboss. Wave 7 ends with the Stage 1 boss.
+  Each finale fills one of the 20 spawn slots. The Brick Tower clears any
+  remaining projectiles when the wave ends, including the final wave.
+- Initial armored stats are 220 armor over 80 health, 120 damage per hit,
+  25 px/s and a 15 gold reward. Armor takes damage first. When it breaks, the
+  zombie moves and attacks at the regular zombie's speed and damage. Extra damage
+  from that hit carries through to its health.
+- The armored zombie walks in full steel plate with its eyes visible through
+  a narrow helmet slit. Breaking the armor restores the regular zombie artwork.
+- W or the Max Upgrade slot beside Q Freeze gives every tower its highest tier
+  for ten active seconds, including towers built during the effect. The 30-second
+  cooldown starts on activation. Shop and settings pause both timers.
+- Clearing Stage 2 saves both tower unlocks for replay. The 150-gold Minion Tower
+  sends three minions out its door every five active seconds. The 150-gold first
+  upgrade recruits ten every three seconds. The 300-gold second upgrade
+  recruits twenty every second. Max Upgrade temporarily recruits 50 every
+  two seconds at any purchased tier. Each minion has 40 health, moves at
+  90 px/s, deals six damage per second in melee, and stays until defeated
+  or the run ends.
+  The 100-gold Treadmill Tower slows zombies to 25% speed while they cross its belt.
+- Initial pacing is one spawn every 3.5 seconds. Stage 2 reuses the kingdom
+  battlefield and its two marked opening lanes. The stage shop shows a picture
+  above every available tower's name using its battlefield sprite. The Minion
+  and Treadmill towers use realistic stone, wood, slate and metal artwork.
 
 ## Proposed loop and controls
 

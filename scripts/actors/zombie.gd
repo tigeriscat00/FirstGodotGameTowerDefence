@@ -43,7 +43,7 @@ func _ready() -> void:
 	_update_health_display()
 
 
-func tick(delta: float, towers: Array[DefenseTower], gate: Vector2) -> void:
+func tick(delta: float, towers: Array[DefenseTower], gate: Vector2, speed_factor: float = 1.0, nearby_minion: DefenseTower = null) -> void:
 	if settled:
 		return
 	if freeze_left > 0.0:
@@ -66,6 +66,8 @@ func tick(delta: float, towers: Array[DefenseTower], gate: Vector2) -> void:
 		if distance <= nearest:
 			nearest = distance
 			victim = tower
+	if nearby_minion != null and position.distance_squared_to(nearby_minion.position) <= nearest * nearest:
+		victim = nearby_minion
 	if victim != null:
 		_apply_walk_frame(0)
 		if cooldown <= 0.0:
@@ -79,7 +81,7 @@ func tick(delta: float, towers: Array[DefenseTower], gate: Vector2) -> void:
 			gate_hit.emit(power)
 		return
 	var previous_position: Vector2 = position
-	position = position.move_toward(gate, move_speed * delta)
+	position = position.move_toward(gate, move_speed * speed_factor * delta)
 	walk_distance += previous_position.distance_to(position)
 	# Advance poses by ground covered, rather than flailing at a fixed frame rate.
 	# Larger enemies take longer strides, giving the semiboss a heavier shuffle.

@@ -1,5 +1,113 @@
 # Progress
 
+## 2026-11-15 - Distinct Stage 2 wave openings
+
+- Wave 3 opens with eight dogs alternating between two marked lanes, 1.5
+  seconds apart. Wave 4 opens with two armored zombies in the same marked
+  lane, two seconds apart. Preparation warns the player and shows gold
+  arrows. Both waves keep 20 total enemies and their semiboss finales.
+- Godot import and startup passed. All 91 Stage 2 checks passed, including the
+  marked lanes and spawn intervals. Five simulations cleared all seven waves.
+  Stage 1, Stage 1 roster, and brick checks also passed.
+
+## 2026-11-15 - Max Upgrade balance adjustment
+
+- Each Minion Tower recruits 50 minions every two active seconds during Max
+  Upgrade. A full cast produces 250 recruits per tower.
+- Godot import, Stage 2 startup and all 84 Stage 2 checks passed, including
+  the five-batch schedule and return to the purchased recruitment rate.
+
+## 2026-11-15 - Full plate armor for the armored zombie
+
+- Replaced the armor overlay with an eight-frame walk in weathered steel
+  plate. The helmet covers the face except for the narrow eye slit.
+  Breaking armor swaps directly to the regular zombie sprite.
+- Inspected a rendered comparison in the upper and middle lanes. Godot
+  import and startup passed, along with 84 Stage 2, 233 Stage 1, and 12
+  actor-art checks. The previously recorded shutdown warnings still appear.
+
+## 2026-11-15 - Slower Max Upgrade recruitment
+
+- Stage 2 Max Upgrade recruits 100 minions every two seconds from each
+  Minion Tower, for 500 recruits over a full cast.
+- Godot import, startup and all 81 Stage 2 checks passed, including the
+  five-batch schedule and return to the tower's purchased rate.
+
+## 2026-11-15 - Large minion armies run faster
+
+- Stage 2 draws a shared sprite where barracks recruits overlap and searches
+  nearby groups for combat targets. Each recruit still moves, fights and takes
+  damage individually at the existing spawn rates and movement speed.
+- Rendered comparison with 10,000 patrolling recruits went from 73 ms to 16 ms
+  per frame. With twelve zombies in the same test, the updated game averaged
+  30 ms per frame. Import, startup, 80 Stage 2 checks and the Stage 1, minion,
+  brick and tutorial suites passed.
+
+## 2026-11-15 - Max Upgrade recruits 100 minions per batch
+
+- Stage 2 Max Upgrade now recruits 100 minions every 0.1 active seconds.
+  A full ten-second cast recruits 10,000 from each Minion Tower.
+- Godot import, startup, 77 rendered Stage 2 checks and 25 minion checks
+  passed. The test counted all 10,000 recruits and verified that the
+  purchased recruitment rate resumed after the boost.
+
+## 2026-11-15 - Persistent minions and faster Max Upgrade recruitment
+
+- Minion Tower recruits stay on the battlefield until defeated or the run
+  ends. Removed their lifetime timer and fade.
+- Max Upgrade recruits 50 minions every 0.4 active seconds from any Minion
+  Tower tier. After ten seconds the tower resumes its purchased rate.
+- Godot import, startup, 77 rendered Stage 2 checks and the Stage 1, minion
+  and brick checks passed. A single cast recruited all 1,250 minions in the
+  test, and the recruits remained after the ability ended.
+
+## 2026-11-15 - Illustrated shop and Minion Tower upgrades
+
+- Shop cards show each available tower's picture, name, and purchase button.
+  The Minion Tower is a stone barracks and the Treadmill Tower is a low
+  wood-and-metal trap. Both sprites appear in the shop and on the field.
+- The Minion Tower's first upgrade costs 150 gold and recruits ten every
+  three seconds. The second costs 300 gold and recruits twenty every second.
+  Max Upgrade uses the top recruitment rate temporarily. Minion Tower
+  recruits retire after 15 active seconds to keep their numbers bounded.
+- Inspected the rendered shop and battlefield. Godot import and startup,
+  72 Stage 2 checks, 233 Stage 1 checks, and the minion, brick, and tutorial
+  suites passed. Next playtest should try the two recruitment upgrades on
+  a replay. The existing CLI audio shutdown warning still appears.
+
+## 2026-11-15 - Max Upgrade in the tower skill row
+
+- Stage 2 shows Max Upgrade inside W beside Q Freeze on the selected tower.
+  The slot displays its ready, active and cooldown states. The W keyboard
+  shortcut also works without a selected tower.
+- Godot import and Stage 2 startup passed. A rendered test clicked the W
+  slot, verified its text fits, and checked its countdown. All 58 Stage 2
+  checks and 233 Stage 1 checks passed.
+
+## 2026-11-15 - Stage 2 bosses and brick cleanup
+
+- Stage 1 semibosses now finish Stage 2 waves 2–6, and the Stage 1 boss
+  finishes wave 7. Every wave still has 20 enemies.
+- Both stages clear all in-flight bricks on the wave-completion tick,
+  including before the final reward screen.
+- Godot import and Stage 2 startup passed, along with 23 brick checks,
+  53 Stage 2 checks, five simulated Stage 2 clears, and Stage 1 regressions.
+  The existing CLI audio shutdown warning still appears.
+
+## 2026-11-15 - Playable Stage 2
+
+- Level 2 opens after the Stage 1 reward sack. It has seven randomized
+  20-zombie waves, breakable armor, and W for ten seconds of Max Upgrade
+  on a 30-second recharge. Victory saves the Minion and Treadmill Tower unlocks.
+- Godot import, main menu and Stage 2 startup passed. Stage 2 checks cover
+  menu progression, armor overflow and rewards, ability timing, tower
+  mechanics, and five successful simulated clears. Stage 1, its wave roster,
+  minions, bricks, defeat and tutorial regression checks passed.
+- Inspected rendered combat and victory at 1152 × 648. Forced CLI shutdown
+  still reports the known audio playback warning. Next playtest should check
+  wave pacing and try both reward towers on a replay. To adjust the pace,
+  change Spawn Interval on the StageTwo scene (starts at 3.5 seconds).
+
 ## 2026-11-15 - Stage 1 merge verification
 
 - Godot import and startup passed. All 15 headless test scripts passed,

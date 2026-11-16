@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/stage_one.tscn" id="base"]
+[ext_resource type="Script" path="res://scripts/stage/stage_two.gd" id="controller"]
+
+[node name="StageTwo" instance=ExtResource("base")]
+script = ExtResource("controller")
+spawn_interval = 3.5
+
+[node name="W" parent="HUD/SelectionCard/Side/Skills" index="1"]
+custom_minimum_size = Vector2(76, 76)
+
+[node name="Timer" type="Label" parent="HUD/SelectionCard/Side/Skills/W" index="3"]
+layout_mode = 1
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 49.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.95, 0.82, 0.54, 1)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1

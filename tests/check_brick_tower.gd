@@ -101,6 +101,22 @@ func _run() -> void:
 	board.tick_stage(0.01)
 	board._tick_bricks(1.0)
 	check(fragile.settled and game.gold == before_gold + 10 and board.flying_bricks.is_empty(), "A lethal volley pays the kill reward only once")
+
+	game.queue.clear()
+	for wave: int in [1, 5]:
+		game.wave = wave
+		game.waiting = 0.0
+		var last_enemy: TutorialZombie = board.spawn_stage_enemy(game.balance, "standard", 3)
+		last_enemy.position = tower.position + Vector2(-90, 0)
+		last_enemy.health = 12
+		tower.cooldown = 0.0
+		game._process(0.01)
+		game._process(0.3)
+		check(not board.flying_bricks.is_empty() and board.flying_bricks[0].position != board.flying_bricks[0].start, "Bricks are visibly in flight before wave %d ends" % wave)
+		game._process(0.36)
+		check(last_enemy.settled and (game.waiting > 0.0 if wave == 1 else game.reward_open), "Wave %d ends on the first brick hit" % wave)
+		check(board.flying_bricks.is_empty(), "Wave %d clears all bricks on the same tick" % wave)
+
 	game.queue_free()
 	await process_frame
 	root.get_node("Sfx").stop_all()

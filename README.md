@@ -68,6 +68,21 @@ tools/compose_sfx.py; adjust individual effect gains in scripts/audio/sfx.gd.
 Illegal placement retains your purchased tower without charging again. Selling
 unlocks for practice and returns half the total purchase/upgrade cost.
 
+## Play Stage 2
+
+Beat Level 1 and open the boss reward sack to unlock **Level 2** on the main
+menu. Build towers near the gold arrows, then defend against seven waves of
+20 zombies. Armored zombies become regular zombies when their armor breaks.
+Watch the gold arrows before wave 3's dog rush and wave 4's armored push.
+Waves 2–6 end with a semiboss, and wave 7 ends with the boss.
+Press **W** for Max Upgrade, or click its slot beside **Q Freeze** on a selected
+tower. Clearing the final wave unlocks the Minion and
+Treadmill towers in the shop for later runs. Upgrade the Minion Tower for
+10 recruits every 3 seconds, then 20 every second.
+During Max Upgrade, the Minion Tower recruits 50 every 2 seconds.
+
+To try Level 2 directly in Godot, open `scenes/stage_two.tscn` and press **F6**.
+
 ## Tune and inspect
 
 - resources/tutorial_balance.tres: gold, damage, health, range, timings and speed.

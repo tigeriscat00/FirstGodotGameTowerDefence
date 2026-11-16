@@ -2,6 +2,9 @@ extends "res://scripts/actors/zombie.gd"
 
 const DOG_ART: Texture2D = preload("res://assets/generated/realistic_zombie_dog_run.png")
 const TOILET_ART: Texture2D = preload("res://assets/generated/toilet_zombie_walk.png")
+const ARMORED_ART: Texture2D = preload("res://assets/generated/realistic_armored_zombie_walk.png")
+const ARMORED_FRAME_HEIGHT: float = 290.0
+const ARMORED_FOOT_OFFSET: float = 144.0
 # Per-frame visible centers and foot baselines, measured at alpha >= 128.
 const DOG_VISIBLE_WIDTH: float = 360.0
 const DOG_CENTER_X: Array[float] = [207.5, 197.0, 193.5, 189.0, 198.0, 194.0, 193.0, 192.0]
@@ -9,15 +12,21 @@ const DOG_FEET_Y: Array[float] = [434.0, 429.0, 422.0, 416.0, 371.0, 373.0, 370.
 const TOILET_CENTER_X: Array[float] = [206.0, 182.5, 192.5, 177.5, 205.5, 192.5, 186.0, 192.5]
 const TOILET_FEET_Y: Array[float] = [507.0, 505.0, 508.0, 506.0, 491.0, 487.0, 491.0, 494.0]
 const TOILET_VISIBLE_HEIGHT: float = 494.0
+const STANDARD_POWER: int = 55
 @export_range(55.0, 120.0) var dog_width: float = 86.0
+@export var armor_strength: int = 220
+@export var armored_power: int = 120
+@export var armored_speed: float = 25.0
+@onready var normal_art: Texture2D = $Art.texture
 var kind: String = "standard"
+var armor_health: int = 0
 
 func setup_stage(config: TutorialBalance, enemy_kind: String) -> void:
 	kind = enemy_kind
 	setup(config, kind == "semiboss" or kind == "boss")
 	gold_reward = 10
 	if kind == "standard":
-		power = 55
+		power = STANDARD_POWER
 	match kind:
 		"dog":
 			health = 50
@@ -27,6 +36,11 @@ func setup_stage(config: TutorialBalance, enemy_kind: String) -> void:
 			health = 200
 			power = 35
 			move_speed = 27.0
+		"armored":
+			armor_health = armor_strength
+			power = armored_power
+			move_speed = armored_speed
+			gold_reward = 15
 		"semiboss":
 			gold_reward = 15
 		"boss":
@@ -45,6 +59,8 @@ func _ready() -> void:
 		$Art.texture = TOILET_ART
 		$Art.hframes = 4
 		$Art.vframes = 2
+	elif kind == "armored":
+		$Art.texture = ARMORED_ART
 	super._ready()
 	match kind:
 		"dog":
@@ -53,6 +69,9 @@ func _ready() -> void:
 		"toilet":
 			$SemibossLabel.text = "TOILET"
 			$SemibossLabel.show()
+		"armored":
+			$SemibossLabel.text = "ARMORED"
+			$SemibossLabel.show()
 		"semiboss":
 			$Art.modulate = Color(0.8, 0.48, 0.42)
 		"boss":
@@ -60,7 +79,31 @@ func _ready() -> void:
 			$SemibossLabel.text = "BOSS"
 	queue_redraw()
 
+func take_damage(amount: int) -> void:
+	if settled:
+		return
+	if armor_health > 0 and amount > 0:
+		var absorbed: int = mini(amount, armor_health)
+		armor_health -= absorbed
+		amount -= absorbed
+		if amount == 0:
+			get_node("/root/Sfx").play(&"impact")
+		if armor_health == 0:
+			kind = "standard"
+			power = STANDARD_POWER
+			move_speed = balance.zombie_speed
+			$Art.texture = normal_art
+			$SemibossLabel.hide()
+	super.take_damage(amount)
+
 func _apply_walk_frame(frame: int) -> void:
+	if kind == "armored":
+		var visible_height: float = clampf(position.y - 68.0, 72.0, 105.0)
+		var armor_scale: float = visible_height / ARMORED_FRAME_HEIGHT
+		$Art.frame = frame
+		$Art.scale = Vector2.ONE * armor_scale
+		$Art.position = Vector2(0.0, -ARMORED_FOOT_OFFSET * armor_scale)
+		return
 	if kind == "toilet":
 		$Art.frame = frame
 		var height: float = minf(104.0, maxf(72.0, (position.y - 68.0) / 0.89))
@@ -84,7 +127,13 @@ func _apply_walk_frame(frame: int) -> void:
 
 func _update_health_display() -> void:
 	super._update_health_display()
-	if kind == "dog":
+	if armor_health > 0:
+		$Health.position.y = maxf($Health.position.y, 94.0 - position.y)
+		$SemibossLabel.position.y = $Health.position.y - 24.0
+		$Health.max_value = max_health + armor_strength
+		$Health.value = health + armor_health
+		$Health/Value.text = "%d / %d" % [health + armor_health, max_health + armor_strength]
+	elif kind == "dog":
 		# The dog is shorter than the upright zombie; keep its bar nearby while
 		# leaving the label below the HUD on the uppermost lane.
 		$Health.position = Vector2(-36.0, maxf(-72.0, 94.0 - position.y))

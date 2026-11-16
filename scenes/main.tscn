@@ -93,7 +93,7 @@ vertical_alignment = 1
 layout_mode = 2
 text = "○ 2"
 disabled = true
-tooltip_text = "Level 2 is coming later"
+tooltip_text = "Clear Level 1 to unlock Level 2"
 
 [node name="Line2" type="Label" parent="Center/Menu/Levels"]
 layout_mode = 2

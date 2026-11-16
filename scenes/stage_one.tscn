@@ -6,3 +6,17 @@
 script = ExtResource("controller")
 [node name="Board" parent="Margin/Layout/Middle" index="0"]
 script = ExtResource("board")
+
+[node name="TowerCards" type="HBoxContainer" parent="ShopOverlay/Card/Contents" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Picture" parent="ShopOverlay/Card/Contents" index="2"]
+visible = false
+
+[node name="Name" parent="ShopOverlay/Card/Contents" index="3"]
+visible = false
+
+[node name="Buy" parent="ShopOverlay/Card/Contents" index="4"]
+visible = false

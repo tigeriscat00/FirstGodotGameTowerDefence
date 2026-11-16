@@ -1,5 +1,31 @@
 # Asset sources
 
+## Stage 2
+
+The armored zombie uses an eight-frame plate armor walk created with the
+built-in ImageGen tool, with the regular zombie sheet as a pose reference.
+Both tower sprites were also created with the built-in ImageGen tool and
+packaged as transparent PNGs for the shop and battlefield.
+The Minion Tower reuses the existing kingdom minion sprite.
+
+- `assets/generated/realistic_minion_tower.png` · 302 × 384 px
+- `assets/generated/realistic_treadmill_tower.png` · 384 × 114 px
+- `assets/generated/realistic_armored_zombie_walk.png` · 1280 × 640 px, 4 × 2 frames with aligned foot baselines
+
+### ImageGen prompts
+
+**Armored Zombie**
+
+> Refit this exact eight-frame 2D zombie walking sprite sheet with a complete suit of realistically rendered late-medieval plate armor. The provided image is the pose, orientation, layout, and art style reference. Preserve the 4-column by 2-row regular equal-size grid, reading order, pose progression, right-facing silhouettes, hunched zombie body language, foot positions, clear gutters, and full figure in every cell. Each frame depicts the same zombie completely covered from head to toe in dark weathered forged steel: fully enclosed close helmet, realistic narrow open horizontal visor slit with pale small zombie eyes peeking through, solid lower faceplate, covered neck, overlapping articulated gorget and pauldrons, breastplate, fauld, gauntlets covering fingers, plated thighs, greaves and steel sabatons. Cover every exposed bit of skin except the eyes behind the visor. Steel highlights and subdued warm grime for readable shapes at game size, minor dents, restrained tarnish. No weapon, no shield, no fabric cape, no glow effects around the helmet, no text. Eight poses only, all boots and helmets fully inside their own cell, margins and cell spacing matching the reference; no frames touch one another. Actual transparent alpha, no cast shadows, no floor or background. Landscape 2:1 sprite sheet.
+
+**Minion Tower**
+
+> Transparent RPG game sprite for a 2D medieval zombie tower defense. A compact minion recruitment barracks in a single readable silhouette: realistically weathered tan-grey stone tower, dark oak beams, muted royal blue slate roof and small matching banner, prominent open arched doorway at lower front-left near ground with warm interior light, a small worn threshold. Three-quarter elevated front view with a little roof and right side visible, like a realistic painted 3D medieval strategy game asset. Neutral daylight from upper left, detailed physical materials, restrained colors. Compact square footprint and squat tower silhouette, distinct roof and door legible at 85px. Center the fully visible building, use most of square canvas, with tight transparent border. Actual transparent alpha background, no floor plane, no detached shadows, no people, no text.
+
+**Treadmill Tower**
+
+> Transparent RPG game sprite for a 2D medieval zombie tower defense. One compact medieval treadmill trap seen in three-quarter elevated front view, a low horizontal walk-through machine pointing left to right, broad dark iron-and-oak running belt stretching across the center with recognizable crosswise slats, open low beveled entry and exit at the left and right, paired stone and riveted bronze side supports, a restrained exposed iron sprocket along the front side. The belt is near ground level, with clear open approaches at both ends. Weathered slate-grey, burnished bronze and dark oak, neutral daylight from upper left, realistic hand-painted 3D strategy game asset, readable silhouette at 100px wide. Center the fully visible object and keep a tight margin with actual transparent alpha background. No ground plane, no detached shadows, no people, no labels.
+
 ## Defeat lightning - 2026-11-15
 
 Lightning bolts and flashes are original Godot drawing effects in
